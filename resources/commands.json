@@ -3,8 +3,15 @@
     "command_name": "examplecommand",
     "execute_as_console": false,
     "executed_commands": [
-      "say My coordinates are %x,$y,$z",
-      "kill %player"
+      "say My coordinates are %x,$y,$z"
+    ]
+  },
+  {
+    "command_name": "anothercommand",
+    "execute_as_console": true,
+    "executed_commands": [
+      "give %player 276",
+      "tell %player I gave you a diamond sword!"
     ]
   }
 ]
