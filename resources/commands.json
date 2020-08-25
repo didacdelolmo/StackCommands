@@ -1,13 +1,15 @@
 [
   {
-    "command_name": "examplecommand",
+    "name": "examplecommand",
+    "description": "Broadcasts your current coordinates",
     "execute_as_console": false,
     "executed_commands": [
       "say My coordinates are %x,$y,$z"
     ]
   },
   {
-    "command_name": "anothercommand",
+    "name": "anothercommand",
+    "description": "Gives you a diamond sword",
     "execute_as_console": true,
     "executed_commands": [
       "give %player 276",

@@ -25,7 +25,9 @@ class StackCommands extends PluginBase {
     public function onEnable() {
         $this->commands_data = json_decode(file_get_contents($this->getDataFolder() . "commands.json"), true);
         foreach($this->commands_data as $command_data) {
-            $this->getServer()->getCommandMap()->register("stackcommands", new PluginCommand($command_data["command_name"], $this));
+            $command = new PluginCommand($command_data["name"], $this);
+            $command->setDescription($command_data["description"]);
+            $this->getServer()->getCommandMap()->register("stackcommands", $command);
         }
     }
 
@@ -36,7 +38,7 @@ class StackCommands extends PluginBase {
         }
 
         foreach($this->commands_data as $command_data) {
-            if(strtolower($command->getName()) === strtolower($command_data["command_name"])) {
+            if(strtolower($command->getName()) === strtolower($command_data["name"])) {
                 foreach($command_data["executed_commands"] as $stacked_command) {
                     $stacked_command = str_replace("%player", $sender->getName(), $stacked_command);
                     $stacked_command = str_replace("%x", $sender->getX(), $stacked_command);
