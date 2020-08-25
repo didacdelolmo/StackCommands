@@ -8,6 +8,7 @@ namespace diduhless\stackcommands;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\command\ConsoleCommandSender;
 use pocketmine\command\PluginCommand;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
@@ -30,6 +31,7 @@ class StackCommands extends PluginBase {
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
         if(!$sender instanceof Player) {
+            $sender->sendMessage("You cannot execute this command in the console!");
             return true;
         }
 
@@ -41,7 +43,12 @@ class StackCommands extends PluginBase {
                     $stacked_command = str_replace("%y", $sender->getY(), $stacked_command);
                     $stacked_command = str_replace("%z", $sender->getZ(), $stacked_command);
 
-                    $this->getServer()->dispatchCommand($sender, $stacked_command);
+                    $server = $this->getServer();
+                    if($command_data["execute_as_console"]) {
+                        $server->dispatchCommand(new ConsoleCommandSender(), $stacked_command);
+                    } else {
+                        $server->dispatchCommand($sender, $stacked_command);
+                    }
                 }
             }
         }

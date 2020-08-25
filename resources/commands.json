@@ -1,6 +1,7 @@
 [
   {
     "command_name": "examplecommand",
+    "execute_as_console": false,
     "executed_commands": [
       "say My coordinates are %x,$y,$z",
       "kill %player"
