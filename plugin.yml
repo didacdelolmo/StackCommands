@@ -3,5 +3,5 @@ name: StackCommands
 description: A plugin that executes multiple commands with a single command
 author: Didah (@diduhless)
 website: https://github.com/Diduhless
-version: 1.0.0
+version: 1.2.0
 api: 3.0.0

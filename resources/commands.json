@@ -2,6 +2,7 @@
   {
     "name": "examplecommand",
     "description": "Broadcasts your current coordinates",
+    "default_permission": "op",
     "execute_as_console": false,
     "executed_commands": [
       "say My coordinates are %x,$y,$z"
@@ -10,6 +11,7 @@
   {
     "name": "anothercommand",
     "description": "Gives you a diamond sword",
+    "default_permission": "",
     "execute_as_console": true,
     "executed_commands": [
       "give %player 276",

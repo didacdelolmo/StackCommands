@@ -27,6 +27,10 @@ class StackCommands extends PluginBase {
         foreach($this->commands_data as $command_data) {
             $command = new PluginCommand($command_data["name"], $this);
             $command->setDescription($command_data["description"]);
+            $permission = $command_data["default_permission"];
+            if($permission !== "") {
+                $command->setPermission($permission);
+            }
             $this->getServer()->getCommandMap()->register("stackcommands", $command);
         }
     }
